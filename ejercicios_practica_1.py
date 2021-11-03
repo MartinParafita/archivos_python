@@ -16,7 +16,7 @@ def ej1():
     print('Ejercicios con diccionarios 1º')
     # Crear un diccionario vacio
     # el diccionario vacio debe llamarse "stock"
-    
+    stock = {}
     # stock = ....
 
     # Luego de crear el diccionario completelo
@@ -24,13 +24,15 @@ def ej1():
     # tornillos = 100
     # tuercas = 150
     # arandelas = 300
-
+    stock['tornillos'] = 100
+    stock['tuercas'] = 150
+    stock['arandelas'] = 300
     # Los nombres tornillos, tuercas y arandelas
     # son las claves (keys) del diccionario
     # mientras que las cantidades son los valores (values)
 
     # Una vez armado el diccionario imprimirlo en pantalla con print
-
+    print(stock)
     # Comenzar aquí, recuerde el identado dentro de esta funcion
 
 
@@ -45,16 +47,38 @@ def ej2():
     # Paso 1:
     # Crear un bucle utilizando while que se ejecute de forma infinita
     # while True.....
-    
+    while True:
     # Paso 2:
     # Dentro de ese bucle consultar al usuario por consola
     # que producto desea agregar al stock
+        consulta = str(input("Que producto desea agregar? "))
+        
+        if consulta == "tornillos":
+            cambiar_stock = int(input("Cuanto desea agregar? "))
+            strock['tornillos'] += cambiar_stock
+        elif consulta == "tuercas":
+            cambiar_stock = int(input("Cuanto desea agregar? "))
+            strock['tuercas'] += cambiar_stock
+        elif consulta == "arandelas":
+            cambiar_stock = int(input("Cuanto desea agregar? "))
+            strock['arandelas'] += cambiar_stock
+        elif consulta.lower() == 'fin':
+            print('Terminamos')
+            break        
+        else:
+            print('Error!')
+        
+        
+        
+    
+    print(strock)
     #   - Si el usuario ingresa "FIN" como producto se debe 
     #   finalizar el bucle
     #   - Si el usuario ingresa un producto no definido en el stock
     #   se debe enviar un mensaje de error. (si desea investigar esto
-    #   se resuelve muy bien utilizando el operador "in" con diccionarios)
+    #   se resuelve muy bien utilizando el operador "in" con diccionario.
 
+    
     # Paso 3:
     # Luego de haber ingresado el producto se debe ingresar por consola
     # cuanto stock de ese producto se desea agregar al stock.

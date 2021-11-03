@@ -28,6 +28,19 @@ def ej3():
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
     
+    total_tornillos = 0
+    with open('stock.csv') as archivo:
+        stock = list(csv.DictReader(archivo))
+        for fila in stock:
+            tornillos = fila.get('tornillos')
+            total_tornillos = total_tornillos + int(tornillos)
+            print(fila)
+            print("La cantidad de tornillos es: ",tornillos)
+        print("El total de tornillos es: ",total_tornillos)
+            
+        
+        
+
 
 
 def ej4():
@@ -47,7 +60,27 @@ def ej4():
     # utilizando "try except", tema que se verá la clase que viene.
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
-
+    deptos_2amb = 0
+    deptos_3amb = 0
+    with open('propiedades.csv') as archivo:
+        propiedades = list(csv.DictReader(archivo))
+        cantidad_filas = len(propiedades)
+        
+        for i in range(cantidad_filas):
+        
+            depto = propiedades[i]
+            try:
+                ambientes = int(depto.get('ambientes'))
+                print('Depto', i, 'ambientes:', ambientes)
+            except:
+                print('Error Fila', i, 'dato faltante')
+            if ambientes == 2:
+                deptos_2amb += ambientes 
+            elif ambientes == 3:
+                deptos_3amb += ambientes
+    
+    print("La cantidad de deptos 2 amb son: ",deptos_2amb)
+    print("La cantidad de deptos 3 amb son: ",deptos_3amb)   
 
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
